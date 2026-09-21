@@ -1,0 +1,1 @@
+CyptoSim: paper trading simulator with real Binance data, candlestick charts, and AI trader agent
