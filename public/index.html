@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CyptoSim — Simulatore Crypto AI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">&#8383;</span>
+      <div>
+        <h1>CyptoSim</h1>
+        <span class="sub">simulatore paper-trading su mercato reale — portafoglio finto, prezzi veri</span>
+      </div>
+    </div>
+    <div class="head-right">
+      <span class="badge" id="dataBadge">connessione…</span>
+      <span class="muted" id="dataAge"></span>
+    </div>
+  </header>
+
+  <div id="offline" class="offline hidden">Server non raggiungibile — avvialo con <code>node server.mjs</code></div>
+
+  <section class="stats" id="stats">
+    <div class="card stat"><span class="label">Equity totale</span><span class="value" id="stEquity">—</span><span class="delta" id="stPnl">—</span></div>
+    <div class="card stat"><span class="label">Liquidità</span><span class="value" id="stCash">—</span><span class="delta muted" id="stStart">—</span></div>
+    <div class="card stat"><span class="label">Valore posizioni</span><span class="value" id="stPos">—</span><span class="delta muted" id="stPosCount">—</span></div>
+    <div class="card stat"><span class="label">P&L realizzato</span><span class="value" id="stRealized">—</span><span class="delta muted" id="stFees">—</span></div>
+  </section>
+
+  <section class="card chart-card">
+    <div class="chart-head">
+      <h2 id="candleTitle">Candele 15m — BTCUSDT (dati reali Binance)</h2>
+      <div class="tabs" id="symTabs"></div>
+    </div>
+    <canvas id="candleChart" height="300"></canvas>
+  </section>
+
+  <section class="card chart-card">
+    <h2>Andamento portafoglio (ultime 6 ore)</h2>
+    <canvas id="equityChart" height="180"></canvas>
+  </section>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Prezzi live &amp; posizioni</h2>
+      <div class="table-wrap"><table id="pricesTable">
+        <thead><tr><th>Asset</th><th>Prezzo</th><th>24h</th><th>Quantità</th><th>Valore</th><th>P&amp;L</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+
+    <section class="card">
+      <h2>Decisioni AI</h2>
+      <ul class="feed" id="agentList"><li class="muted empty">Nessuna decisione — l'AI non è ancora collegata (vedi PIANO.md)</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>Ordini recenti</h2>
+      <div class="table-wrap"><table id="tradesTable">
+        <thead><tr><th>Quando</th><th>Side</th><th>Asset</th><th>Quantità</th><th>Prezzo</th><th>P&amp;L</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+
+    <section class="card">
+      <h2>Notizie crypto</h2>
+      <ul class="feed" id="newsList"><li class="muted empty">Caricamento…</li></ul>
+    </section>
+  </main>
+
+  <footer>
+    <button id="resetBtn" class="danger">Reset portafoglio</button>
+    <span class="muted">Portafoglio finto, prezzi reali. Nessun denaro vero è coinvolto.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

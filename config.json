@@ -1,0 +1,50 @@
+{
+  "port": 3131,
+  "market": {
+    "intervalMs": 5000,
+    "source": "binance",
+    "fallback": "coingecko",
+    "staleAfterMs": 60000
+  },
+  "candles": {
+    "intervalMs": 60000,
+    "binanceInterval": "15m",
+    "limit": 100
+  },
+  "news": {
+    "intervalMs": 300000,
+    "feeds": [
+      "https://cointelegraph.com/rss",
+      "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "https://decrypt.co/feed"
+    ],
+    "maxItems": 80
+  },
+  "coins": [
+    { "symbol": "BTCUSDT", "name": "Bitcoin",  "coingeckoId": "bitcoin" },
+    { "symbol": "ETHUSDT", "name": "Ethereum", "coingeckoId": "ethereum" },
+    { "symbol": "SOLUSDT", "name": "Solana",   "coingeckoId": "solana" },
+    { "symbol": "BNBUSDT", "name": "BNB",      "coingeckoId": "binancecoin" },
+    { "symbol": "XRPUSDT", "name": "XRP",      "coingeckoId": "ripple" },
+    { "symbol": "ADAUSDT", "name": "Cardano",  "coingeckoId": "cardano" },
+    { "symbol": "DOGEUSDT","name": "Dogecoin", "coingeckoId": "dogecoin" },
+    { "symbol": "AVAXUSDT","name": "Avalanche","coingeckoId": "avalanche-2" },
+    { "symbol": "LINKUSDT","name": "Chainlink","coingeckoId": "chainlink" },
+    { "symbol": "DOTUSDT", "name": "Polkadot", "coingeckoId": "polkadot" }
+  ],
+  "portfolio": {
+    "startingCashUsd": 100,
+    "feeBps": 10,
+    "slippageBps": 5,
+    "maxTradeUsd": 50
+  },
+  "agent": {
+    "baseUrl": "http://localhost:11434/v1",
+    "model": "qwen2.5:7b",
+    "apiKey": "",
+    "intervalMinutes": 15,
+    "minConfidence": 0.6,
+    "maxTradePctOfCash": 20,
+    "style": "balanced"
+  }
+}
